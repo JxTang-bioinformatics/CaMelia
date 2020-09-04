@@ -13,26 +13,7 @@ The code of PretiMeth has been tested in Windows with Python 2.7 (and 3.6).
 
 You will need to download the source code and locate them in the same directory.
 
-1) You can download pre-trained models:
-
-GSE65364:
-
-HCCs:
-
-HepG2:
-
-mESC:
-
-GSE56879:
-
-2i:
-
-Serum:
-
-MII:
-
-
-2) For training models for your own data, you need to download necessary files as fallowing:
+For training models for your own data, you need to download necessary files as fallowing:
 
    i)  Feature extraction:
    
@@ -63,9 +44,36 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
+2) Run ``XXX.py`` to create the input data for CaMelia:
+
+3) Run ``XXX.py`` to train CaMelia and evaluate model performances:
+
+4) Use ``XXX.py`` to impute methylation profiles:
+
+
+# Examples:
 
 
 
+# Pre-trained models:
+
+GSE65364:
+
+HCCs:
+
+HepG2:
+
+mESC:
+
+GSE56879:
+
+2i:
+
+Serum:
+
+MII:
+
+ 
 
 
 
