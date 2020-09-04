@@ -38,8 +38,7 @@ MII:
 
 Example:
 
-.. code::
-
+```
 chrom  location  cell1  cell2  ...  celln bulk
 chr1   136409    1.0    NA     ...  0.0   1.0
 chr1   136423    NA     1.0    ...  NA    0.0
@@ -48,8 +47,7 @@ chr1   136425    0.0    NA     ...  1.0   1.0
 chrY   28748270  NA     1.0    ...  1.0   1.0
 chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
-
-
+```
 
 
 
