@@ -5,7 +5,7 @@
 
 ![image](https://github.com/JxTang-bioinformatics/PretiMeth/raw/master/images/Diagram_of_PretiMeth.png)
 
-The overview of CaMelia model.
+**The overview of CaMelia model.**
 
 # Before starting
 
