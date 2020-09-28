@@ -9,7 +9,7 @@
 
 # Before starting
 
-The code of PretiMeth has been tested in Windows with Python 2.7 (and 3.6).
+The code of CaMelia has been tested in Windows with Python 2.7 (and 3.6).
 
 You will need to download the source code and locate them in the same directory.
 
@@ -18,6 +18,9 @@ For training models for your own data, you need to download necessary files as f
    i)  Feature extraction:
    
    ii) Model training:
+
+   
+
    
 
 # Getting started
@@ -44,7 +47,7 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
-2) Run ``XXX.py`` to create the input data for CaMelia:
+2) Run ``XXX.py`` and ``XXX.py`` to create the input data for CaMelia:
 
 3) Run ``XXX.py`` to train CaMelia and evaluate model performances:
 
@@ -55,7 +58,7 @@ chrY   28773349  NA     NA     ...  0.0   0.0
 
 
 
-# Pre-trained models:
+# Trained models:
 
 GSE65364:
 
