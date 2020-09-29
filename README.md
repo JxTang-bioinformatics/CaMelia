@@ -60,11 +60,6 @@ chrY   28773349  NA     NA     ...  0.0   0.0
 4) Use ``XXX.py`` to impute methylation profiles:
 
 
-# Examples:
-
-
-
-
 # Contact
 
 * Jianxiong Tang
