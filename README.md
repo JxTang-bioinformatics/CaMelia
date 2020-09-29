@@ -16,11 +16,13 @@ The code of CaMelia has been tested in Windows with Python 2.7 (and 3.6).
 For training models for your own data, you need to download necessary files as fallowing:
 
    a) Feature extraction and datasets formation:
-   6 files in:
+   
+   * 6 files in:
    https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction
   
    b) Model training and imputing:
-   1 file in:
+   
+   * 1 file in:
    https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Model
    
 # Getting started
