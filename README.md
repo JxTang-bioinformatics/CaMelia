@@ -31,7 +31,7 @@ For training models for your own data, you need to download necessary files as f
 
 # Getting started
 
-1) Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
+**1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
 
 * Chromosome (with chr)
 * Position of the CpG site on the chromosome starting with one
@@ -40,7 +40,7 @@ For training models for your own data, you need to download necessary files as f
 * Binary methylation state of the CpG sites in cell n
 * Binary methylation state of the CpG sites in bulk data
 
-Example:
+**Example:**
 
 ```
 chrom  location  cell1  cell2  ...  celln bulk
@@ -53,28 +53,28 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
-2) Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
+**2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
 ```
 python get_local_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings) CorrelationThreshold(user settings)
 ```
 ```
 python get_neighbor_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings)
 ```
-3) Run ``get_local_Feature_for_imputation.py`` and ``get_neighbor_Feature_for_imputation.py`` to extract features for imputation: 
+**3)** Run ``get_local_Feature_for_imputation.py`` and ``get_neighbor_Feature_for_imputation.py`` to extract features for imputation: 
 ```
 python get_local_Feature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings) CorrelationThreshold(user settings)
 ```
 ```
 python get_neighbor_Feature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings)
 ```
-4) Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to create the input data for CaMelia: 
+**4)** Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to create the input data for CaMelia: 
 ```
 python unionfeature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings)
 ```
 ```
 python unionfeature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings)
 ```
-5) Run ``model_TrainingandImputing.py`` to train CaMelia, evaluate model performances and impute methylation profiles:
+**5)** Run ``model_TrainingandImputing.py`` to train CaMelia, evaluate model performances and impute methylation profiles:
 ```
 python model_TrainingandImputing.py Datafilepath(user settings) InputDataName(user settings) task_type(user settings:'CPU' or 'GPU')
 ```
