@@ -58,23 +58,6 @@ chrY   28773349  NA     NA     ...  0.0   0.0
 
 
 
-# Trained models:
-
-GSE65364:
-
-HCCs:
-
-HepG2:
-
-mESC:
-
-GSE56879:
-
-2i:
-
-Serum:
-
-MII:
 
 # Contact
 
