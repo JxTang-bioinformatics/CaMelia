@@ -31,7 +31,7 @@ For training models for your own data, you need to download necessary files as f
 
 # Getting started
 
-1) Store the raw data from cells of the same cell type or bulk data of this cell type into a file with the following columns:
+1) Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
 
 * Chromosome (with chr)
 * Position of the CpG site on the chromosome starting with one
