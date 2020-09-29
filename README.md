@@ -19,7 +19,7 @@ For training models for your own data, you need to download necessary files as f
    
    b) Formation of training and imputing datasets：
    
-   c) Model training:
+   c) Model training and imputing:
   
    
    
