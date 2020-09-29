@@ -11,7 +11,7 @@
 
 The code of CaMelia has been tested in Windows with Python 2.7 (and 3.6).
 
-You will need to download the source code and locate them in the same directory.
+**You will need to download the source code and locate them in the same directory.**
 
 For training models for your own data, you need to download necessary files as fallowing:
 
