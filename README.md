@@ -15,9 +15,15 @@ You will need to download the source code and locate them in the same directory.
 
 For training models for your own data, you need to download necessary files as fallowing:
 
-   i)  Feature extraction:
+   a) Feature extraction:
    
-   ii) Model training:
+   b) Formation of training and imputing datasets：
+   
+   c) Model training:
+  
+   
+   
+   
 
    
 
