@@ -15,34 +15,14 @@ The code of CaMelia has been tested in Windows with Python 2.7 (and 3.6).
 
 For training models for your own data, you need to download necessary files as fallowing:
 
-   a) Feature extraction:
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/get_local_Feature_for_train.py
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/get_local_Feature_for_imputation.py
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/get_neighbor_Feature_for_train.py
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/get_neighbor_Feature_for_imputation.py
-
-   b) Formation of training and imputing datasets：
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/unionfeature_for_train.py
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/unionfeature_for_imputation.py
-   
-   c) Model training and imputing:
-   
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction/model_TrainingandImputing.py
+   a) Feature extraction and datasets formation:
+   6 files in:
+   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Feature%20extraction
   
+   b) Model training and imputing:
+   1 file in:
+   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Model
    
-   
-   
-
-   
-
-   
-
 # Getting started
 
 **1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
