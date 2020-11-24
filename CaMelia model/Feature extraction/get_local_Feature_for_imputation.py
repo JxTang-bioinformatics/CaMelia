@@ -287,7 +287,7 @@ if __name__ == '__main__':
         #mouse chrome
         ch=[]
         for i in range(1,20):
-    	   ch.append('chr%d' % i)
+            ch.append('chr%d' % i)
         ch.append('chrX')     
         ch.append('chrY')	
     		
