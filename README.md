@@ -31,7 +31,7 @@ For training models for your own data, you need to download necessary files as f
 
 * Chromosome (with chr)
 * Position of the CpG site on the chromosome starting with one
-* Binary methylation state of the CpG sites in cell 1(0=unmethylation, 1=methylated)
+* Binary methylation state of the CpG sites in cell 1 (0=unmethylation, 1=methylated)
 * ...
 * Binary methylation state of the CpG sites in cell n
 * Binary methylation state of the CpG sites in bulk data
