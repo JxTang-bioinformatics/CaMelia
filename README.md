@@ -9,7 +9,7 @@
 
 # Before starting
 
-The code of CaMelia has been tested in Windows with Python 2.7 (and 3.6).
+The code of CaMelia has been tested in Windows with **Python 2.7 (and 3.6)**.
 
 **You will need to download the source code and locate them in the same directory.**
 
