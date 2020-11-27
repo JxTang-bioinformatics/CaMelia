@@ -56,7 +56,6 @@ chrY   28773349  NA     NA     ...  0.0   0.0
 
 ```
 bash xxx.sh
-
 ```
 
 **2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
