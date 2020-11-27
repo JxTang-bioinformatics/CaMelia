@@ -49,14 +49,15 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
-**2)** Perform a typical CaMelia analysis by running the ``xxx.sh`` file, which includes the following:
+**2)** Perform a typical CaMelia analysis by running the ``xxx`` file, which includes the following:
 * extraction of predictive features (proximal methylation features and local pairwise similarity features)
 * model training and evaluation
 * interpolation
 
 ```
-bash xxx.sh
+xxx
 ```
+
 
 **2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
 ```
