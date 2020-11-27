@@ -3,6 +3,6 @@ numpy
 pandas
 scipy
 matplotlib
-sklearn
+scikit-learn
 numba
 catboost
