@@ -87,6 +87,8 @@ python model_TrainingandImputing.py Datafilepath(user settings) InputDataName(us
 
 # Output file
 
+The main derived output files of CaMelia are:
+
 
 
 
