@@ -51,16 +51,6 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
-**2)** Perform a typical CaMelia analysis by running the ``xxx`` file, which includes the following:
-* extraction of predictive features (proximal methylation features and local pairwise similarity features)
-* model training and evaluation
-* interpolation
-
-```
-xxx
-```
-
-
 **2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
 ```
 python get_local_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings: Default 10) CorrelationThreshold(user settings：Default 0.8)
