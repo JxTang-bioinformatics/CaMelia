@@ -91,8 +91,11 @@ python model_TrainingandImputing.py Datafilepath(user settings) InputDataName(us
 The main derived output files of CaMelia are:
 
 **1)** ``imputation_data``: the imputed single-cell methylation data;
+
 **2)** ``5fold_crossvalidation_catboost.csv``: the prediction performance of CaMelia models under 5-fold cross-validation;
+
 **3)** ``model_save``: independent CaMelia models for each cell;
+
 **4)** ``model_feature_importance``: feature importance Diagram for each independent CaMelia model.
 
 
