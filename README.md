@@ -29,7 +29,7 @@ For training models for your own data, you need to download necessary files as f
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/run_steps.png)
 <p align="center">
-The pipline of the typical CaMelia analysis.
+**The pipline of the typical CaMelia analysis.**
 </p>
 **1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
 
