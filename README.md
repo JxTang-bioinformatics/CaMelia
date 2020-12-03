@@ -23,8 +23,9 @@ For training models for your own data, you need to download necessary files as f
    b) Model training and imputing:
    
    * 1 file in:
-   https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Model
+   https://github.com/JxTang-bioinformatics/CaMelia/tree/master/CaMelia%20model/Model%20construction
    
+   **Note: The code must be executed in the order described in "Getting started".**
    
 # Getting started
 
