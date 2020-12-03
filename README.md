@@ -25,13 +25,14 @@ For training models for your own data, you need to download necessary files as f
    * 1 file in:
    https://github.com/JxTang-bioinformatics/CaMelia/blob/master/CaMelia%20model/Model
    
+   
 # Getting started
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/run_steps.png)
 <p align="center">
 **The pipline of the typical CaMelia analysis.**
 </p>
-**1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_HepG2.txt") with the following columns:
+**1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_mESC.txt") with the following columns:
 
 * Chromosome (with chr)
 * Position of the CpG site on the chromosome starting with one
@@ -52,6 +53,8 @@ chrY   28748270  NA     1.0    ...  1.0   1.0
 chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
+The **sample input file** can be downloaded from：
+https://github.com/JxTang-bioinformatics/CaMelia/blob/master/example
 
 **2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
 ```
