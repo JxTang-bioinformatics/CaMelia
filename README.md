@@ -4,8 +4,9 @@
 **The trained CaMelia model can be used for different downstream analyses, including to impute low-coverage methylation profiles for sets of cells or aid the identification of cell types or cell sub-populations.**
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/forgithub-01.png)
-
+<p align="center"> 
 **The overview of CaMelia model.**
+</p>
 
 # Before starting
 
