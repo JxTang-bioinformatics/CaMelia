@@ -65,13 +65,6 @@ chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 python get_local_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings: Default 10) CorrelationThreshold(user settings：Default 0.8)
 ```
-**eg: (Note the following order of execution)**
-
-python get_local_Feature_for_train.py E:\singlecellimputation\1203testcode GSE65364_mESC.txt 10 0.8
-
-python get_neighbor_Feature_for_train.py E:\singlecellimputation\1203testcode GSE65364_mESC.txt 10 0.8
-
-
 ```
 python get_neighbor_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
@@ -93,6 +86,10 @@ python unionfeature_for_imputation.py Datafilepath(user settings) InputDataName(
 ```
 python model_TrainingandImputing.py Datafilepath(user settings) InputDataName(user settings) task_type(user settings:'CPU' or 'GPU')
 ```
+
+# Output file
+
+
 
 
 # Contact
