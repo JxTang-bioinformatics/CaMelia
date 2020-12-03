@@ -5,7 +5,7 @@
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/forgithub-01.png)
 <p align="center"> 
-**The overview of CaMelia model.**
+The overview of CaMelia model
 </p>
 
 # Before starting
@@ -30,7 +30,7 @@ CaMelia does not require installation, just download the necessary files and run
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/run_steps.png)
 <p align="center">    
-The pipline of the typical CaMelia analysis.
+The pipline of the typical CaMelia analysis
 </p>
 
 **1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_mESC.txt") with the following columns:
