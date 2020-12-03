@@ -30,8 +30,12 @@ For training models for your own data, you need to download necessary files as f
 
 ![image](https://github.com/JxTang-bioinformatics/CaMelia/blob/master/image/run_steps.png)
 <p align="center">
-The pipline of the typical CaMelia analysis.
+   
+**The pipline of the typical CaMelia analysis.**
+
 </p>
+
+
 **1)** Store the raw data from cells of the same cell type or bulk data of this cell type into a file (File naming style: "xxx_cell-type.txt", like "GSE65364_mESC.txt") with the following columns:
 
 * Chromosome (with chr)
@@ -57,28 +61,28 @@ chrY   28748361  0.0    NA     ...  0.0   0.0
 chrY   28773349  NA     NA     ...  0.0   0.0
 ```
 
-**2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to extract features for training:
+**2)** Run ``get_local_Feature_for_train.py`` and ``get_neighbor_Feature_for_train.py`` to **extract features for training**:
 ```
 python get_local_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings: Default 10) CorrelationThreshold(user settings：Default 0.8)
 ```
 ```
 python get_neighbor_Feature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
-**3)** Run ``get_local_Feature_for_imputation.py`` and ``get_neighbor_Feature_for_imputation.py`` to extract features for imputation: 
+**3)** Run ``get_local_Feature_for_imputation.py`` and ``get_neighbor_Feature_for_imputation.py`` to **extract features for imputation**: 
 ```
 python get_local_Feature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10) CorrelationThreshold(user settings：Default 0.8)
 ```
 ```
 python get_neighbor_Feature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
-**4)** Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to create the input data for CaMelia: 
+**4)** Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to **create the input datasets for model**: 
 ```
 python unionfeature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
 ```
 python unionfeature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
-**5)** Run ``model_TrainingandImputing.py`` to train CaMelia, evaluate model performances and impute methylation profiles:
+**5)** Run ``model_TrainingandImputing.py`` to **train CaMelia**, **evaluate model performances** and **impute methylation profiles**:
 ```
 python model_TrainingandImputing.py Datafilepath(user settings) InputDataName(user settings) task_type(user settings:'CPU' or 'GPU')
 ```
