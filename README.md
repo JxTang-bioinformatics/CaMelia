@@ -9,7 +9,7 @@
 
 # Before starting
 
-The code of CaMelia has been tested in **Windows and Linux** with **Python 2.7 (and 3.6)**.
+CaMelia does not require installation, just download the necessary files and run them from the command line. The code of CaMelia has been tested in **Windows and Linux** with **Python 2.7 (and 3.6)**.
 
 **You will need to download the source code and locate them in the same directory.**
 
