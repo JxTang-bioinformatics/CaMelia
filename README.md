@@ -43,7 +43,7 @@ The pipline of the typical CaMelia analysis.
 * Binary methylation state of the CpG sites in cell n
 * Binary methylation state of the CpG sites in bulk data
 
-The **sample input file** can be downloaded from：
+The **sample input file ("GSE65364_mESC.txt")** can be downloaded from：
 https://github.com/JxTang-bioinformatics/CaMelia/blob/master/example
 
 **Example:**
