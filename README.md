@@ -73,7 +73,7 @@ python get_local_Feature_for_imputation.py Datafilepath(user settings) InputData
 ```
 python get_neighbor_Feature_for_imputation.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
-**3)** Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to **create the input datasets for model**: 
+**3)** Run ``unionfeature_for_train.py`` and ``unionfeature_for_imputation.py`` to **generate the datasets for model training and imputing**: 
 ```
 python unionfeature_for_train.py Datafilepath(user settings) InputDataName(user settings) LocalRange(user settings：Default 10)
 ```
