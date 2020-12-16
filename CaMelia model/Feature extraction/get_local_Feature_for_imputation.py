@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Tue Jun 16 16:44:39 2020
 
@@ -34,34 +34,65 @@ def corre(a,b):
 def getlog2(a):    
     return round(np.log2(a+1.01),4)
 
-
+####################################
+def reduce_mem(df):
+    #starttime = time.time()
+    numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+    #start_mem = df.memory_usage().sum() / 1024**2
+    for col in df.columns:
+        col_type = df[col].dtypes
+        if col_type in numerics:
+            c_min = df[col].min()
+            c_max = df[col].max()
+            if pd.isnull(c_min) or pd.isnull(c_max):
+                continue
+            if str(col_type)[:3] == 'int':
+                if c_min > np.iinfo(np.int8).min and c_max < np.iinfo(np.int8).max:
+                    df[col] = df[col].astype(np.int8)
+                elif c_min > np.iinfo(np.int16).min and c_max < np.iinfo(np.int16).max:
+                    df[col] = df[col].astype(np.int16)
+                elif c_min > np.iinfo(np.int32).min and c_max < np.iinfo(np.int32).max:
+                    df[col] = df[col].astype(np.int32)
+                elif c_min > np.iinfo(np.int64).min and c_max < np.iinfo(np.int64).max:
+                    df[col] = df[col].astype(np.int64)
+            else:
+                if c_min > np.finfo(np.float16).min and c_max < np.finfo(np.float16).max:
+                    df[col] = df[col].astype(np.float16)
+                elif c_min > np.finfo(np.float32).min and c_max < np.finfo(np.float32).max:
+                    df[col] = df[col].astype(np.float32)
+                else:
+                    df[col] = df[col].astype(np.float64)
+    #end_mem = df.memory_usage().sum() / 1024**2
+    #print('-- Mem. usage decreased to {:5.2f} Mb ({:.1f}% reduction),time spend:{:2.2f} min'.format(end_mem,                                                                                                          100*(start_mem-end_mem)/start_mem,                                                                                                           (time.time()-starttime)/60))
+    return df
 ####################################
 def unionlargefile(i1,gse,region,chh,cell_num): 
     print ("Block%d:start!" % i1 )
     file_dir_Block = r'%s/Forimputation/local_methFeature_cellbycell/Block%d' %  (gse,i1)
     if not os.path.exists(file_dir_Block):
-        os.makedirs(file_dir_Block) 
-    print('here1')    
+        os.makedirs(file_dir_Block)    
     
     meragefiledir = r'%s/Forimputation/local_methFeature_for_imputation/localRegion_%d' % (gse,region)
     filenames=os.listdir(meragefiledir)
 
     path = r'%s/Forimputation/local_methFeature_for_imputation/localRegion_%d/%s' % (gse,region,filenames[0])
     data = pd.read_csv(path,header=0,sep='\t')
+
     data[list(data)[2:]] = data[list(data)[2:]].astype('float16')
     data[list(data)[2:]] = data[list(data)[2:]].round(4)
     data = data[data.chrom.isin(chh[i1])]
-    
-    print('here2')    
+    data = reduce_mem(data)       
     
     for i in range(1,len(filenames)):
         path = r'%s/%s' % (meragefiledir,filenames[i])
         df = pd.read_csv(path,header=0,sep='\t')
+        df = reduce_mem(df) 
         df[list(df)[2:]] = df[list(df)[2:]].astype('float16')
         df[list(df)[2:]] = df[list(df)[2:]].round(4)
         df = df[df.chrom.isin(chh[i1])]
         data = pd.merge(data,df,how='outer',on=['chrom','location'])
-    print('here3')        
+
+       
     file_dir_1 = r'%s/region%d/corr' % (file_dir_Block,region)
     if not os.path.exists(file_dir_1):
         os.makedirs(file_dir_1)
@@ -101,25 +132,27 @@ def unionfinalfile(file_dir,meragefiledir,filenames,filenames1,filenames2,i1,reg
     for j in range(i1,i2):
         path = r'%s/%s/region%d/corr/%s' %(meragefiledir,filenames[0],region,filenames1[j])
         df_r = pd.read_csv(path,header=0,sep='\t')
+
         path = r'%s/%s/region%d/methy/%s' %(meragefiledir,filenames[0],region,filenames2[j])
         df_m = pd.read_csv(path,header=0,sep='\t')
-             
+            
         for i in range(1,len(filenames)):
             path = r'%s/%s/region%d/corr/%s' %(meragefiledir,filenames[i],region,filenames1[j])
-            data = pd.read_csv(path,header=0,sep='\t')
+            data = pd.read_csv(path,header=0,sep='\t') 
             df_r = pd.concat([df_r,data])
-            
+ 
+                        
             path = r'%s/%s/region%d/methy/%s' %(meragefiledir,filenames[i],region,filenames2[j])
             data = pd.read_csv(path,header=0,sep='\t')
             df_m = pd.concat([df_m,data])            
-            
+        df_r = reduce_mem(df_r)                         
         df_r = df_r.drop_duplicates(['chrom','location'])
 
  
         df_r.to_csv(r'%s/%s' % (file_dir_1,filenames1[j]),sep='\t',header=True,index=False) 
         
+        df_m = reduce_mem(df_m)        
         df_m = df_m.drop_duplicates(['chrom','location'])
-
         df_m.to_csv(r'%s/%s' % (file_dir_2,filenames2[j]),sep='\t',header=True,index=False)         
         
     return ('Block%d:Done!' % i1)
@@ -134,13 +167,15 @@ def unionfile(file_dir,meragefiledir,filenames,filenames1,i1):
         for i in range(len(filenames)):
             path = r'%s/%s/%s' %(meragefiledir,filenames[i],filenames1[j])
             data = pd.read_csv(path,header=0,sep='\t')
+            data = reduce_mem(data) 
             data[list(data)[2:]] = data[list(data)[2:]].astype('float16')
             data[list(data)[2:]] = data[list(data)[2:]].round(4)
             if i==0:
                 df = pd.merge(df,data,how='outer')
             else:
                 df = pd.concat([df,data])
-            #print (j,i,len(df))
+
+        
         df = df.drop_duplicates(['chrom','location'])
         df.to_csv(r'%s/%s' % (file_dir,filenames1[j]),sep='\t',header=True,index=False)     
     return ('jincheng%d:Done!' % i1)
@@ -158,11 +193,14 @@ def test(data,value,neighbor_region,file_dir,gse,bocknum,i1):
 
         path = r'%s/for_impu_r/Block%d/%s_local_r.txt' % (gse,bocknum,list(data)[i]) 
         data_r_for_imputation = pd.read_csv(path,header=0,sep='\t')
+        data_r_for_imputation = reduce_mem(data_r_for_imputation)
         
         
         for k in range(i+1,len(list(data))):
             data1 = data[['%s' % list(data)[0],'%s' % list(data)[1],'%s' % list(data)[i],'%s' % list(data)[k]]]
+            data1 = reduce_mem(data1)             
             data4 = data_r_for_imputation[ ['%s' % list(data_r_for_imputation)[0],'%s' % list(data_r_for_imputation)[1],'%s_%s_r' % (list(data1)[2],list(data1)[3]) ] ]
+            data4 = reduce_mem(data4)            
             #
             data_chr = pd.DataFrame(np.random.randn(0, 4), columns=['chrom','location','%s_%s_r' % (list(data1)[2],list(data1)[3]),'%s_%s_methy' % (list(data1)[2],list(data1)[3])])
             for j in range(len(value)):                                                 
@@ -211,10 +249,13 @@ def test(data,value,neighbor_region,file_dir,gse,bocknum,i1):
                 data_for_impu['%s_%s_methy' % (list(data1)[2],list(data1)[3])] = np.log2(data_for_impu['%s_%s_methy' % (list(data1)[2],list(data1)[3])]+1.01)
                 data_for_impu['%s_%s_methy' % (list(data1)[2],list(data1)[3])] = data_for_impu['%s_%s_methy' % (list(data1)[2],list(data1)[3])].round(4)
                 if len(data_for_impu) != 0:
-                    data_chr = pd.merge(data_chr,data_for_impu,how='outer')               
+                    data_for_impu = reduce_mem(data_for_impu)                	
+                    data_chr = pd.merge(data_chr,data_for_impu,how='outer')
+                                  
             if len(data_chr) != 0:
+                data_chr = reduce_mem(data_chr)            	
                 data_all = pd.merge(data_all,data_chr,how='outer',on=['chrom','location'])
-                
+                 
             print ('%s-%s: Done!' % (list(data1)[2],list(data1)[3]))
 
         data_all.to_csv(r'%s/%s_local_methFeature.txt' %  (file_dir,list(data)[i]) ,sep='\t',header=True,index=False)  
@@ -244,6 +285,7 @@ if __name__ == '__main__':
 		               
     path = r'%s/%s' % (gse,ff)
     data = pd.read_csv(path,header=0,sep='\t')
+    data = reduce_mem(data)
     if list(data)[0] != 'chrom':
         del data['%s' % list(data)[0]]
              
@@ -439,9 +481,11 @@ if __name__ == '__main__':
         #corr
         path = r'%s/%s_r.txt' % (file_dir_1,cell_num[i])
         data_r = pd.read_csv(path,header=0,sep='\t')
+
         #methy
         path = r'%s/%s_m.txt' % (file_dir_2,cell_num[i])
         data_m = pd.read_csv(path,header=0,sep='\t')
+  
         
         df_r = data_r[['chrom','location']]
     
