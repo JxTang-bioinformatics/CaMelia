@@ -12,7 +12,7 @@ The overview of CaMelia model
 
 CaMelia does not require installation, just download the necessary files and run from the command line to perform a typical analysis. The code of CaMelia has been tested in **Windows** and **Linux** with **Python 2.7 (and 3.6)**.
 
-**You will need to download the source code and locate them in the same directory:**
+**You will need to download the source code and locate them in the same directory (note: No space characters in the directory path):**
 
    a) Feature extraction and datasets formation:
    
