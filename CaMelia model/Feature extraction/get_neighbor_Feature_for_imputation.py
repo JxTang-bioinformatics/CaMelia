@@ -274,7 +274,7 @@ if __name__ == '__main__':
     meragefiledir1 = r'%s/%s' % (file_dir,filenames[0])
     filenames1=os.listdir(meragefiledir1)
 
-    file_dir = r'%s/Forimputation/neighbor_methFeature_10/localRegion_%d' % (gse,neighbor_region)
+    file_dir = r'%s/Forimputation/neighbor_methFeature_%d/localRegion_%d' % (gse,neighbor_region,neighbor_region)
     if not os.path.exists(file_dir):
         os.makedirs(file_dir)  
   
