@@ -51,8 +51,8 @@ def unionfile(file_dir,meragefiledir,filenames,filenames1,i1):
             data = pd.read_csv(path,header=0,sep='\t')
             df = pd.merge(df,data,how='outer')
         df = df.drop_duplicates(['chrom','location'])
-        data[list(data)[2:]] = data[list(data)[2:]].astype('float16')
-        data[list(data)[2:]] = data[list(data)[2:]].round(4)
+        df[list(df)[2:]] = df[list(df)[2:]].astype('float16')
+        df[list(df)[2:]] = df[list(df)[2:]].round(4)
         df.to_csv(r'%s/%s' % (file_dir,filenames1[j]),sep='\t',header=True,index=False)     
     return ('jincheng%d:Done!' % i1)
 
